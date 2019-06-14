@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @location.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @location.address %>
+</p>
+
+<!-- <p>
+  <strong>Latitude:</strong>
+  <%= @location.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @location.longitude %>
+</p> -->
+
+<iframe src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @location.address %>&size=400x400&maptype=roadmap
+&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
+&markers=color:red%7Clabel:C%7C40.718217,-73.998284
+&key=APIKEY"></iframe>
+
+<h3>Nearby Locations</h3>
+
+<% @nearbylocations = @location.nearbys(10) %>
+<ul>
+<% @nearbylocations.each do |location| %>
+  <li><%= location.name %> - <%= location.distance.round(2) %> miles</li>
+  <br>
+<%end%>
+</ul>
+
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>
