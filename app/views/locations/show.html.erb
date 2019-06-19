@@ -20,10 +20,8 @@
   <%= @location.longitude %>
 </p> -->
 
-<iframe src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @location.address %>&size=400x400&maptype=roadmap
-&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
-&markers=color:red%7Clabel:C%7C40.718217,-73.998284
-&key=APIKEY"></iframe>
+<img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @location.address %>&zoom=14&size=600x300&maptype=roadmap
+&markers=color:red%7Clabel:X%7C<%=@location.address%>&key=AIzaSyDyUGuNx18DFBXojrqK3vaHpOrWSj3pSAM"></img>
 
 <h3>Nearby Locations</h3>
 
