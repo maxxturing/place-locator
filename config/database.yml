@@ -22,4 +22,8 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: place_locator_production
+  username: place_locator
+  password: <%= ENV['place_locator_DATABASE_PASSWORD'] %>
